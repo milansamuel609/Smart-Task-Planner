@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 public class OpenAIProperties {
 
     private String key;
-    private String model = "gemini-1.5-flash";
+    private String model = "gemini-2.0-flash";
     private Integer maxTokens = 2000;
     private Double temperature = 0.7;
 
@@ -46,4 +46,5 @@ public class OpenAIProperties {
     public void setTemperature(Double temperature) {
         this.temperature = temperature;
     }
+
 }
