@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: smart-task-planner
+
+  # Database Configuration
+  datasource:
+    url: jdbc:postgresql://localhost:5432/smartDB?stringtype=unspecified
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+
+ # Hibernate configuration
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
+
+# API key configuration with encrypted API key
+gemini:
+  api:
+    key: ENC(0OR2oVCHAGClxxPRpZFlpHRdwVR1D+/pKsuovB3o2BeG/j9dxNCfeT9ZaDJdKg8KyMSR5jEgmS9VjI01DJ0vVaW3V35O7g8/KK75ZOyj4sM=)
+    model: gemini-2.0-flash
+    max-tokens: 2000
+    temperature: 0.7
+
+# Server Configuration
+server:
+  port: 8080
+  error:
+    include-message: always
+
+# Logging
+logging:
+  level:
+    root: INFO
+    com.milan.smarttaskplanner: DEBUG
+    org.hibernate.SQL: DEBUG
+
+# Swagger/OpenAPI
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
