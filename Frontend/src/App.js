@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
-import API_BASE_URL from "./config";
 
 function App() {
   const [goal, setGoal] = useState("");
@@ -20,7 +19,7 @@ function App() {
   }, []);
 
   const fetchGoals = () => {
-    axios.get(`${API_BASE_URL}/api/goals/recent`)
+    axios.get("http://localhost:8080/api/goals/recent")
       .then(res => setAllGoals(res.data))
       .catch(err => console.error(err));
   };
@@ -32,7 +31,7 @@ function App() {
     setError("");
     setPlan(null);
     try {
-      const resp = await axios.post(`${API_BASE_URL}/api/goals`, {
+      const resp = await axios.post("http://localhost:8080/api/goals", {
         description: goal,
         targetDate: targetDate ? `${targetDate}T00:00:00` : null
       });
@@ -50,7 +49,7 @@ function App() {
   const updateTaskStatus = async (goalId, taskId, currentStatus) => {
     const newStatus = currentStatus === "COMPLETED" ? "PENDING" : "COMPLETED";
     try {
-      await axios.put(`${API_BASE_URL}/api/goals/${goalId}/tasks/status`, {
+      await axios.put(`http://localhost:8080/api/goals/${goalId}/tasks/status`, {
         taskId,
         status: newStatus
       });
@@ -63,7 +62,7 @@ function App() {
   const deleteGoal = async (goalId) => {
     if (!window.confirm("Are you sure you want to delete this goal?")) return;
     try {
-      await axios.delete(`${API_BASE_URL}/api/goals/${goalId}`);
+      await axios.delete(`http://localhost:8080/api/goals/${goalId}`);
       fetchGoals();
     } catch (err) {
       setError("Failed to delete goal");
@@ -72,7 +71,7 @@ function App() {
 
   const startGoal = async (goalId) => {
     try {
-      await axios.put(`${API_BASE_URL}/api/goals/${goalId}/status?status=IN_PROGRESS`);
+      await axios.put(`http://localhost:8080/api/goals/${goalId}/status?status=IN_PROGRESS`);
       fetchGoals();
     } catch (err) {
       setError("Failed to start goal");
