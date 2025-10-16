@@ -16,8 +16,8 @@ public class TaskResponse {
     private Long id;
     private String title;
     private String description;
-    private String detailedDescription;  // NEW: Comprehensive description
-    private List<String> steps;          // NEW: Step-by-step guide
+    private String detailedDescription;
+    private List<String> steps;
     private Integer estimatedDurationHours;
     private String priority;
     private String status;
