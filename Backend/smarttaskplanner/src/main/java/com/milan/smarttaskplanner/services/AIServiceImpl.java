@@ -238,7 +238,7 @@ public class AIServiceImpl implements AIService {
             log.info("Content length: {} characters", content.length());
             log.debug("Raw content: {}", content);
 
-            // Clean up markdown code blocks
+            // Clean up Markdown code blocks
             content = content.trim();
             if (content.startsWith("```json")) {
                 content = content.substring(7).trim();
@@ -277,7 +277,7 @@ public class AIServiceImpl implements AIService {
                 for (int i = 0; i < tasksNode.size(); i++) {
                     JsonNode taskNode = tasksNode.get(i);
 
-                    // Use AI-generated duration, not a default value
+                    // Use AI-generated duration
                     int estimatedHours = taskNode.path("estimatedDurationHours").asInt(4);
                     totalHours += estimatedHours;
 
