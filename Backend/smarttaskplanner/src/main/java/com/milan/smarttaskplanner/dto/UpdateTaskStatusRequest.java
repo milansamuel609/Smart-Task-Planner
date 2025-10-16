@@ -14,5 +14,5 @@ public class UpdateTaskStatusRequest {
     private Long taskId;
 
     @NotBlank(message = "Status is required.")
-    private String status; // e.g., PENDING, IN_PROGRESS, COMPLETED, BLOCKED
+    private String status;
 }
