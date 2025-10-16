@@ -29,7 +29,7 @@ public class Goal {
     private LocalDateTime targetDate;
 
     @Enumerated(EnumType.STRING)
-    @Column(nullable = false, columnDefinition = "goal_status")
+    @Column(nullable = false, length = 50)
     private GoalStatus status;
 
     @OneToMany(mappedBy = "goal", cascade = CascadeType.ALL, orphanRemoval = true)
