@@ -30,12 +30,12 @@ public class Task {
     private String description;
 
     @Column(columnDefinition = "TEXT")
-    private String detailedDescription;  // NEW: Comprehensive description
+    private String detailedDescription;
 
     @ElementCollection
     @CollectionTable(name = "task_steps", joinColumns = @JoinColumn(name = "task_id"))
     @Column(name = "step", columnDefinition = "TEXT")
-    private List<String> steps;  // NEW: Step-by-step guide
+    private List<String> steps;
 
     private Integer estimatedDurationHours;
 
