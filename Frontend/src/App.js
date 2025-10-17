@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";
 
-// If you want to deploy then use the below API_URL
-// const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8080";
-
 function App() {
   const [goal, setGoal] = useState("");
   const [targetDate, setTargetDate] = useState("");
